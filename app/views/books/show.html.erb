@@ -1,0 +1,26 @@
+<h1>book 詳細画面＋book投稿フォーム部分テンプレート前</h1>
+<!--詳細画面-->
+  <% @book.each do |book| %>
+<dev>
+  <%= image_tag @book.get_image %>
+  <p>Title: <%= @book.title %></p>
+  <p>opinion: <%= @book.body %></p>
+  <p><%= image_tag 'no_image.jpeg' %></p>
+  <p>name:<%= @book.user.name %></p>
+  <% if @book.user == current_user %>
+    <%= link_to "destroy", books_path(@book), method: :delete %>
+  <% end %>
+</dev>
+
+
+
+
+<!--books個人の投稿のみが表示されている画面-->
+<!--１０章参考、bookerｓ2画像投稿なしのため-->
+<!--book投稿フォーム-->
+<h4>Books</h4>
+      <%= f.text_field :title %>
+    <h4>説明</h4>
+      <%= f.text_area :body %>
+    <%= f.submit '投稿' %>
+  <% end %>

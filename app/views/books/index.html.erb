@@ -1,0 +1,12 @@
+<h1>Books#index</h1>
+<!--全投稿が一覧になっている画面-->
+<% @book.each do |book| %>
+
+<div>
+  
+    <%= image_tag book.get_image %>
+  <p>ユーザーネーム:<%= book.user.name %></p>
+  <p>Title:<%= book.title %></p>
+  <p>opinion:<%= book.body %></p>
+</div>
+<% end %>
