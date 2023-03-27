@@ -5,7 +5,7 @@
   <%= image_tag @book.get_image %>
   <p>Title: <%= @book.title %></p>
   <p>opinion: <%= @book.body %></p>
-  <p><%= image_tag 'no_image.jpeg' %></p>
+  <p><%= image_tag @book.user.get_profile_image (100,100) %></p>
   <p>name:<%= @book.user.name %></p>
   <% if @book.user == current_user %>
     <%= link_to "destroy", books_path(@book), method: :delete %>
