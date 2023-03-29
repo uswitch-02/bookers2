@@ -1,2 +1,9 @@
 <h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<% @user.each do |user| %>
+<div>
+  <p><%= image_tag user.get_profile_image(100,100) %></p>
+  <p><%= user.name %></p>
+  <p><%= link_to "show", user_path(user.id)%></p>
+</div>
+<% end %>
+

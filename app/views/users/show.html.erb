@@ -1,9 +1,10 @@
 <!--ユーザーの詳細-->
 <div>
-  <h3><%= @user.name %></h3>
+ <div class="profile-container">
+  <h3 class="profile-name"><%= @user.name %></h3>
   <%= image_tag @user.get_profile_image(100,100) %>
-  <% if @user == current_user.id %>
-  <p><%= link_to "プロフィール編集"edit_user_path %></p>
+  <% if @user.id == current_user.id %>
+  <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
   <% end %>
   <!--プロフ画像ボタンイラスト後でlinkする-->
 </div>
@@ -21,3 +22,4 @@
     <p><%= book.body %></p>
 </div>
 <% end %>
+
