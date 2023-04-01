@@ -1,9 +1,9 @@
 <% @books.each do |book| %>
-<duv>
+<div>
     <%= link_to book_path(book.id) do %>
-    <%= image_tag book.get_image %>
+    <%= image_tag book.user.get_profile_image(100,100) %>
     <% end %>
- <p><%= image_tag book.user.get_profile_image(100,100) %></p>
+ <p><%#= image_tag @book.user.get_profile_image(100,100) %></p>
   <p><%= book.user.name %></p>
   <p><%= book.title %></p>
   <p><%= book.body %></p>
