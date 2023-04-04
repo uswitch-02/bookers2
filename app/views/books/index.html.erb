@@ -7,6 +7,7 @@
   <meta name="csrf-token" content="mdKfSKoSr7fakUFQTa_5Mp-GqX-Al-n4GnKjw4EuPU1Y1P9F0ayYpKPmaRgr1J_JyjD6hmC1OY1hVj2yRJIFtg"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></head>  
 </head>
 <body>
+  <%= render 'list', user: current_user, book: @book %>
   <main>
     <p id="notice"></p>
     <div class="container px-5 px-sm-0">
