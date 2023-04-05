@@ -7,37 +7,47 @@
   <meta name="csrf-token" content="mdKfSKoSr7fakUFQTa_5Mp-GqX-Al-n4GnKjw4EuPU1Y1P9F0ayYpKPmaRgr1J_JyjD6hmC1OY1hVj2yRJIFtg"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></head>  
 </head>
 <body>
-  <%= render 'list', user: current_user, book: @book %>
   <main>
     <p id="notice"></p>
     <div class="container px-5 px-sm-0">
       <div class="row">
+        <div class="col-md-3">
+        <%= render 'list', user: current_user, book: @book %>
+        </div>
         <div class="col-md-8 offset-md-1">
           <h2>Books</h2>
-          
-<% @books.each do |book| %>
-<div>
-    <%= link_to book_path(book.id) do %>
-    <%= image_tag book.user.get_profile_image(100,100) %>
-    <% end %>
- <p><%#= image_tag @book.user.get_profile_image(100,100) %></p>
-  <p><%= book.user.name %></p>
-  <p><%= book.title %></p>
-  <p><%= book.body %></p>
-</div>
-<% end %>
-
-  <h4>New book</h4>
-  <%= form_with model: @book do |f| %>
-    <h4>Title</h4>
-      <%= f.text_field :title %>
-    <h4>Opinion</h4>
-      <%= f.text_area :body %>
-    <%= f.submit 'Create Book' %>
-
-<% end %>
-</div>
-</div>
+          <table class="table table-hover table-inverse">
+             <thead>
+               <tr>
+                 <th></th>
+                 <th>Title</th>
+                 <th>Opinion</th>
+                 <th colspan="3"></th>
+               </tr>
+             </thead>
+              <tbody>
+                <% @books.each do |book| %>
+                <tr>
+                  <td>
+                  <%= link_to book_path(book.id) do %>
+                  </td>
+                  <td>
+                    <%= image_tag book.user.get_profile_image(100,100) %>
+                  </td>
+                <% end %>
+                <td>
+                <%= book.user.name %>
+                </td>
+                <td>
+                <%= book.title %>
+                </td>
+                <td>
+                <%= book.body %>
+                </td>>
+                <% end %>
+              </tbody>
+              </table>
+        </div>
 </div>
 </main>
 </body>
