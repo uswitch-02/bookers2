@@ -6,18 +6,19 @@
     <div class="container px-5 px-sm-0">
       <div class="row">
         <div class="col-md-3">
-          <%= render 'books/list', user: current_user, book: @book_new %>
+          <%= render 'books/list', user: @user, book: @book_new %>
           </div>
 
 
-<!--ユーザーの投稿一覧-->
+
 <div class="col-md-8 offset-md-1">
-  <h2>Users</h2>
+  <h2>Books</h2>
   <table class="table">
     <thead>
     <tr>
-      <th>image</th>
-      <th>name</th>
+      <th></th>
+      <th>Title</th>
+      <th>Opinion</th>
       <th cospan="3"></th>
     </tr>
     </thead>
@@ -31,11 +32,11 @@
         <% end %>
       </td>
 
+
       <td>
-        <%= book.user.name %>
-      </td>
-      <td>
-        <%= book.title %>
+        <%= link_to book_path(book.id) do %>
+          <%= book.title %>
+        <% end %>
       </td>
       <td>
         <%= book.body %>
