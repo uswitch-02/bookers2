@@ -6,7 +6,7 @@
        
         
         <h1>Editing Book</h1>
-         <% if @book.errors.any? %>
+           <% if @book.errors.any? %>
         <h3><%= @book.errors.count %> errors prohibited this obj from being saved:</h3>
         <ul>
           <% @book.errors.full_messages.each do |message| %>
@@ -14,23 +14,24 @@
           <% end %>
         </ul>
           <% end %>
-        <%= form_with model: @book do |f| %>
+          <%= form_with model: @book do |f| %>
         <div class="form-group">
           <label for="inputTitle">Title</label>
             <br><%= f.text_field :title, autofocus: true, id:"inputTitle" %>
-            </div>
+        </div>
+
             <div class="form-group">
               <label for="inputOpinion">Opinion</label>
                 <br><%= f.text_field :body, autofocus: true, id:"inputOpinion" %>
-                  </div>
-                  <div class="form-group">
+            </div>
+                <div class="form-group">
                   <%= f.submit "Update Book", class: 'btn btn-sm btn-success'%>
-                  </div>
+                </div>
                     <%= link_to "Show", book_path(@book.id) %>
                     ｜
                     <%= link_to "Back", books_path %>
-        <% end %>
-       </div>
+    　　              <% end %>
+      </div>
     </div>
   </div>
 </main>
